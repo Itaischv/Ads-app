@@ -2,15 +2,51 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav {
+  display: inline-block;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+nav ul {
+
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 10px;
+}
+
+aside {
+  margin: 0 2rem;
+  float: left;
+}
+
+article {
+  margin: 0 2rem;
+  min-height: 400px;
+}
+
+#sidebar-slot {
+  width:300px;
+  height:250px;
+  background:url('assets/images/300x250-barilla.webp');
+}
+
+div#header-slot, div#footer-slot {
+  margin:0 auto;
+  width:728px;
+  height:90px;
+}
+
+div#header-slot {
+  background:url('assets/images/240_F_326264640_Rx6nxYBAE7RVrAFhsrXuk0c53XwzF5RX.jpg');
+}
+
+div#footer-slot {
+  background:url('assets/images/72890-footer.jpeg');
+}
+
+.pageContainer {
+  min-height: 400px;
 }
 
 .App-header {

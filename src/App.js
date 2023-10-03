@@ -1,22 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
-import Header from './components/Header';
-import Footer from "./components/Footer";
 import { Routes, Route } from 'react-router-dom';
 import { Page } from './components/Page';
 import { Container } from "@mui/material";
 import Nav from "./components/navigation/Nav";
+import {useEffect} from "react";
+import axios from 'axios';
+import { pageLoadEvent, adViewedEvent } from './api/api'
 
 function App() {
 
     useEffect(() => {
-        
-    })
+        if (document.readyState === 'complete') {
+            pageLoadEvent().then(r => console.debug(r));
+        } else {
+            window.addEventListener('load', pageLoadEvent);
+            return () => window.removeEventListener('load', pageLoadEvent);
+        }
+    }, [])
+
+    useEffect(() => {
+        adViewedEvent().then(res => res); // Ad viewed
+    }, [])
 
   return (
     <div className="App">
         <Nav />
-        <Header />
         <Container fixed sx={{
             backgroundColor: '#fafafa',
             margin: '1% auto',

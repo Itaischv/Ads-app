@@ -1,8 +1,10 @@
-const Header = () => {
+
+const Header = ({ onclick }) => {
+
     return(
             <header>
                 <p>Header</p>
-                <div id="header-slot" style={{width: '728px', height: '90px'}}></div>
+                <div id="header-slot" onClick={(e) => onclick(e)}></div>
             </header>
 
     )

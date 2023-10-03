@@ -3,15 +3,18 @@ import { Box } from "@mui/material";
 import Header from "./Header";
 import Footer from "./Footer";
 import Sidebar from "./Sidebar";
+import axios from 'axios';
+import { adClickedEvent } from "../api/api";
 
 export const Page = ({number}) => {
+
     return(
         <div className={'pageContainer'}>
             <h2>Page {number}</h2>
             <Box>
-                <Header />
+                <Header onclick={adClickedEvent}/>
                 <h4>Page content:</h4>
-                <Sidebar />
+                <Sidebar onclick={adClickedEvent}/>
                 <article>
                     {
                         loremIpsum({
@@ -25,7 +28,7 @@ export const Page = ({number}) => {
                         })}
                 </article>
 
-                <Footer />
+                <Footer onclick={adClickedEvent}/>
             </Box>
         </div>
     );

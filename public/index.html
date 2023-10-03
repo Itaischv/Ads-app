@@ -3,28 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    <script src="prebid.js"></script>
     <script>
-        window.googletag = window.googletag || {cmd: []};
-        let ad1, ad2, ad3;
-        googletag.cmd.push(function() {
-            adSlot1 = googletag.defineSlot('/6355419/Travel',[728, 90],'footer-slot')
-                .setTargeting('test', 'refresh')
-                .addService(googletag.pubads());
 
-            adSlot2 = googletag.defineSlot('/6355419/Travel',[728, 90],'header-slot')
-                .setTargeting('test', 'refresh')
-                .addService(googletag.pubads());
-            adSlot3 =  googletag
-                .defineSlot('/6355419/Travel/Europe/France/Paris',
-                    [300, 250], 'sidebar-slot')
-                .setTargeting('test', 'refresh')
-                .addService(googletag.pubads());
-            googletag.pubads().enableSingleRequest();
-            googletag.enableServices();
-            googletag.pubads().refresh([ad1, ad2, ad3]);
-
-        });
     </script>
+    <script src="events.js"></script>
+
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
@@ -53,22 +37,5 @@
 <body>
 <noscript>You need to enable JavaScript to run this app.</noscript>
 <div id="root"></div>
-<!--
-  This HTML file is a template.
-  If you open it directly in the browser, you will see an empty page.
-
-  You can add webfonts, meta tags, or analytics to this file.
-  The build step will place the bundled scripts into the <body> tag.
-
-  To begin the development, run `npm start` or `yarn start`.
-  To create a production bundle, use `npm run build` or `yarn build`.
--->
-<script>
-    googletag.cmd.push(function() {
-        googletag.display('footer-slot');
-        googletag.display('header-slot');
-        googletag.display('sidebar-slot');
-    });
-</script>
 </body>
 </html>

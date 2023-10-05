@@ -1,4 +1,4 @@
-# Ads-app
+# Advertisements-app
 
 Tech stack: 
 - Node.js & Express for running a server

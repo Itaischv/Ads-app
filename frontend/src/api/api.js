@@ -5,7 +5,7 @@ const baseURL = "http://localhost:3030"
 export async function pageLoadEvent() {
     return await postRequest(`${baseURL}/events`, {
         type: "Page load",
-        timestamp: Date.now()
+        timestamp: new Date()
     });
 }
 
@@ -13,7 +13,7 @@ export async function adClickedEvent(e) {
     e.preventDefault();
     return await postRequest(`${baseURL}/events`, {
         type: "Ad clicked",
-        timestamp: Date.now(),
+        timestamp: new Date(),
         slot: e.target.id,
         googleQueryId: e.target.getAttribute("data-google-query-id")
     });
@@ -25,19 +25,30 @@ export async function adViewedEvent() {
             // Send event;
             let data = {
                 type: "Ad slot viewed",
-                slot_id: e.slot.getSlotElementId(),
-                timestamp: Date.now()
+                slot: e.slot.getSlotElementId(),
+                timestamp: new Date()
             }
             return await postRequest(`${baseURL}/events`, data);
         });
     });
 }
 
+
+export async function fetchEvents() {
+    return await getRequest(`${baseURL}/events`);
+}
+
 async function postRequest(url, data) {
-    data.timeOnPage = (Date.now() - window.pageLoadedAt) / 1000; // Time in seconds;
+    data.timeOnPage = (new Date() - window.pageLoadedAt) / 1000; // Time in seconds;
     const res = await axios.post(url, data);
     console.debug("Event: ", data.type, " Results: ", res.data)
     return res;
+}
+
+async function getRequest(url) {
+    const res = await axios.get(url);
+    console.log("Get request:", res)
+    return res.data;
 }
 
 

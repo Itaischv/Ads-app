@@ -45,7 +45,7 @@
 
          if (isLeaving <= 50) {
              let data = { type: "Page exit intent",
-                         timestamp: Date.now(),
+                         timestamp: new Date(),
                          timeOnPage: (Date.now() -  window.pageLoadedAt) / 1000
              }
              try {

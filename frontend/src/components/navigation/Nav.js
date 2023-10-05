@@ -33,6 +33,13 @@ const Nav = () => {
                             </Button>
                         </Link>
                     </li>
+                    <li>
+                        <Link to="/db_results">
+                            <Button variant="contained">
+                                DB events
+                            </Button>
+                        </Link>
+                    </li>
                 </ul>
             </nav>
         </>

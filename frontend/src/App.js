@@ -3,20 +3,21 @@ import { Routes, Route } from 'react-router-dom';
 import { Page } from './components/Page';
 import { Container } from "@mui/material";
 import Nav from "./components/navigation/Nav";
-import {useEffect} from "react";
+import {useEffect, useCallback} from "react";
 import axios from 'axios';
-import { pageLoadEvent, adViewedEvent } from './api/api'
+import { pageLoadEvent, adViewedEvent } from './api/api';
+import DBResult from './components/DBResult';
 
 function App() {
 
-    useEffect(() => {
+    useEffect(useCallback(() => {
         if (document.readyState === 'complete') {
             pageLoadEvent().then(r => console.debug(r));
         } else {
             window.addEventListener('load', pageLoadEvent);
             return () => window.removeEventListener('load', pageLoadEvent);
         }
-    }, [])
+    }), [])
 
     useEffect(() => {
         adViewedEvent().then(res => res); // Ad viewed
@@ -36,6 +37,7 @@ function App() {
                     <Route path="two" element={<Page number={2} />} />
                     <Route path="three" element={<Page number={3} />} />
                     <Route path="four" element={<Page number={4} />} />
+                    <Route path="db_results" element={<DBResult />} />
                 </Routes>
         </Container>
     </div>

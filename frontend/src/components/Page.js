@@ -3,10 +3,13 @@ import { Box } from "@mui/material";
 import Header from "./Header";
 import Footer from "./Footer";
 import Sidebar from "./Sidebar";
-import axios from 'axios';
 import { adClickedEvent } from "../api/api";
-
+import { useEffect } from 'react';
 export const Page = ({number}) => {
+
+    useEffect(() => {
+        window.pageLoadedAt = Date.now();
+    }, [])
 
     return(
         <div className={'pageContainer'}>

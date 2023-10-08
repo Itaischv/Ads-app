@@ -8,7 +8,7 @@ Tech stack:
 
 Running the app:
 - install postgres using brew `brew services start postgresql`
-- use `npm run pg:createdb` to create the advertisements db(using env variables in `.env` file).
+- use `npm run pg:createdb` to create the advertisements db.
 - use `npm start` in `backend` dir in order to run server(using `nodemon`), will run on port 3030.
 - use `npm start` in `frontend` dir to run react app on port 3000.
 
